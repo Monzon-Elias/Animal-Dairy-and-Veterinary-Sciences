@@ -9,6 +9,22 @@
     body { margin: 0; font-family: system-ui, sans-serif; background: #fff; color: #111; }
     img { max-width: 100%; display: block; }
 
+    .site-header { position: sticky; top: 0; z-index: 100; }
+    .header-utility { background: #152238; color: #fff; padding: 0.4rem 1rem; display: flex; justify-content: flex-end; align-items: center; gap: 1.25rem; font-size: 0.8rem; }
+    .header-utility a { color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; }
+    .header-utility a:hover { text-decoration: underline; }
+    .header-brand { background: #1e3a5f; color: #fff; padding: 0.75rem 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .header-brand-logo { font-weight: 700; font-size: 1.25rem; white-space: nowrap; }
+    .header-brand-sep { width: 1px; height: 2.5rem; background: rgba(255,255,255,0.5); flex-shrink: 0; }
+    .header-brand-dept { line-height: 1.25; }
+    .header-brand-dept .dept-name { font-size: 1.1rem; font-weight: 600; }
+    .header-brand-dept .college-name { font-size: 0.8rem; opacity: 0.95; }
+    .header-nav { background: #1e3a5f; color: #fff; padding: 0.5rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1); }
+    .header-nav-links { display: flex; align-items: center; gap: 0.25rem; flex-wrap: wrap; }
+    .header-nav-links a { color: #fff; text-decoration: none; padding: 0.4rem 0.6rem; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.25rem; }
+    .header-nav-links a:hover { background: rgba(255,255,255,0.1); border-radius: 0.25rem; }
+    @media (max-width: 768px) { .header-brand { flex-direction: column; align-items: flex-start; } .header-brand-sep { display: none; } .header-nav { flex-direction: column; align-items: flex-start; } }
+
     .hero {
       position: relative;
       height: 500px;
@@ -183,6 +199,33 @@
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-utility">
+      <a href="#">☰ QUICK LINKS</a>
+      <a href="#">👤 MyUSU</a>
+      <a href="#">🔍 SEARCH</a>
+    </div>
+    <div class="header-brand">
+      <span class="header-brand-logo">Utah State University®</span>
+      <span class="header-brand-sep"></span>
+      <div class="header-brand-dept">
+        <div class="dept-name">Animal, Dairy & Veterinary Sciences</div>
+        <div class="college-name">S.J. & Jessie E. Quinney College of Agriculture & Natural Resources</div>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <div class="header-nav-links">
+        <a href="#">Students ▾</a>
+        <a href="#">Directory</a>
+        <a href="#">Majors/Degrees ▾</a>
+        <a href="#">Equine Programs ▾</a>
+        <a href="#">News</a>
+        <a href="#">Research ▾</a>
+        <a href="#">Resources ▾</a>
+      </div>
+    </nav>
+  </header>
+
   <!-- Hero -->
   <section class="hero">
     <div class="hero-overlay"></div>
