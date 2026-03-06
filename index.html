@@ -119,13 +119,16 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      cursor: pointer;
     }
     .card-img-sm { height: 12rem; background: #9ca3af; overflow: hidden; }
     .card-img-sm img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.35s ease; }
     .card:hover .card-img-sm img { transform: scale(1.06); }
     .card-body { padding: 1.5rem; flex: 1; }
     .card-title { font-size: 1.25rem; font-weight: 600; margin: 0 0 0.5rem; }
-    .card-desc { color: #6b7280; font-size: 0.875rem; margin: 0 0 1rem; }
+    .card-desc { color: #6b7280; font-size: 0.875rem; margin: 0 0 0.75rem; }
+    .card-pdf-link { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; font-weight: 600; color: #b91c1c; text-decoration: none; }
+    .card-pdf-link:hover { text-decoration: underline; }
     .card ul { margin: 0; padding: 0 0 0 1rem; color: #4b5563; font-size: 0.875rem; line-height: 1.8; }
 
     .two-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
@@ -192,9 +195,14 @@
     .placeholder { background: #9ca3af; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; }
 
     .careers-carousel-section { margin-top: 2.5rem; padding-top: 2rem; }
+    .careers-carousel-block { margin-bottom: 3.5rem; }
+    .careers-carousel-block:last-child { margin-bottom: 0; }
     .careers-carousel-wrap { overflow: hidden; padding: 1rem 0 1.5rem; }
     .careers-carousel-inner { display: flex; gap: 1.5rem; transition: transform 0.6s ease; }
     .careers-carousel-inner .card { flex: 0 0 280px; min-width: 280px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.25rem; flex-wrap: wrap; }
+    .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: #d1d5db; transition: background 0.2s ease; }
+    .carousel-dot.active { background: #374151; }
   </style>
   </style>
 </head>
@@ -254,88 +262,88 @@
         <h2 style="margin-bottom: 0.75rem;">Where Can a Degree in Animal, Dairy & Veterinary Sciences Take You?</h2>
         <p class="subtitle" style="margin: 0;">Explore the diverse career paths available in animal science—from hands-on animal care and livestock management to advanced research, biotechnology, and veterinary medicine. Discover how your passion for animals can grow into a meaningful and impactful profession, and how these careers are interrelated.</p>
       </div>
-      <img src="advs 1st img.png" alt="ADVS" style="width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 0.5rem;" />
+      <img src="advs 1st img.webp" alt="ADVS" style="width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 0.5rem;" />
     </div>
     <div class="container-wide">
       <div class="careers-carousel-section">
-        <div class="text-center mb-6">
-          <h2 style="margin-bottom: 0.5rem;">Explore the five pilars in Animal Science</h2>
-          <p class="subtitle" style="margin: 0;">These are the five amazing professional careers we offer in Animal Science. Explore each of them to find the one that is right for you.</p>
-        </div>
-        <div class="careers-carousel-wrap">
-          <div class="careers-carousel-inner" id="careersCarouselInner">
-            <div class="card">
-              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c1" alt="Veterinarian" /></div>
-              <div class="card-body">
-                <h3 class="card-title">Veterinarian</h3>
-                <p class="card-desc">Turn your love for animal health into a hands-on career. Diagnose, treat, and care for animals while making a real difference in their lives and their owners’.</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c2" alt="Animal Geneticist" /></div>
-              <div class="card-body">
-                <h3 class="card-title">Animal Geneticist</h3>
-                <p class="card-desc">Shape the future of livestock and species. Use genetics to improve health, productivity, and sustainability—where science meets real-world impact.</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c3" alt="Embryologist" /></div>
-              <div class="card-body">
-                <h3 class="card-title">Embryologist</h3>
-                <p class="card-desc">Work at the cutting edge of reproduction and biotechnology. Help advance breeding, conservation, and research from the very first stages of life.</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c4" alt="Animal Researcher" /></div>
-              <div class="card-body">
-                <h3 class="card-title">Animal Researcher</h3>
-                <p class="card-desc">Ask the questions that move the field forward. From nutrition to behavior to disease, your research can improve animal welfare and industry practice.</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c5" alt="Ag Biotechnologist" /></div>
-              <div class="card-body">
-                <h3 class="card-title">Ag Biotechnologist</h3>
-                <p class="card-desc">Bridge biology and technology to solve tomorrow’s challenges. Develop tools and solutions that make agriculture safer, smarter, and more sustainable.</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c1" alt="Veterinarian" /></div>
-              <div class="card-body">
-                <h3 class="card-title">Veterinarian</h3>
-                <p class="card-desc">Turn your love for animal health into a hands-on career. Diagnose, treat, and care for animals while making a real difference in their lives and their owners’.</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c2" alt="Animal Geneticist" /></div>
-              <div class="card-body">
-                <h3 class="card-title">Animal Geneticist</h3>
-                <p class="card-desc">Shape the future of livestock and species. Use genetics to improve health, productivity, and sustainability—where science meets real-world impact.</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c3" alt="Embryologist" /></div>
-              <div class="card-body">
-                <h3 class="card-title">Embryologist</h3>
-                <p class="card-desc">Work at the cutting edge of reproduction and biotechnology. Help advance breeding, conservation, and research from the very first stages of life.</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c4" alt="Animal Researcher" /></div>
-              <div class="card-body">
-                <h3 class="card-title">Animal Researcher</h3>
-                <p class="card-desc">Ask the questions that move the field forward. From nutrition to behavior to disease, your research can improve animal welfare and industry practice.</p>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c5" alt="Ag Biotechnologist" /></div>
-              <div class="card-body">
-                <h3 class="card-title">Ag Biotechnologist</h3>
-                <p class="card-desc">Bridge biology and technology to solve tomorrow’s challenges. Develop tools and solutions that make agriculture safer, smarter, and more sustainable.</p>
-              </div>
+        <!-- Professional Careers -->
+        <div class="careers-carousel-block">
+          <div class="text-center mb-6">
+            <h2 style="margin-bottom: 0.5rem;">Professional Careers</h2>
+            <p class="subtitle" style="margin: 0;">Typically require advanced or graduate education.</p>
+          </div>
+          <div class="careers-carousel-wrap">
+            <div class="careers-carousel-inner" data-cards="5">
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c1" alt="Veterinarian" /></div><div class="card-body"><h3 class="card-title">Veterinarian</h3><p class="card-desc">Turn your love for animal health into a hands-on career. Diagnose, treat, and care for animals while making a real difference in their lives and their owners’.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c2" alt="Animal Geneticist" /></div><div class="card-body"><h3 class="card-title">Animal Geneticist</h3><p class="card-desc">Shape the future of livestock and species. Use genetics to improve health, productivity, and sustainability—where science meets real-world impact.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c3" alt="Embryologist" /></div><div class="card-body"><h3 class="card-title">Embryologist</h3><p class="card-desc">Work at the cutting edge of reproduction and biotechnology. Help advance breeding, conservation, and research from the very first stages of life.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c4" alt="Animal Research Scientist" /></div><div class="card-body"><h3 class="card-title">Animal Research Scientist</h3><p class="card-desc">Ask the questions that move the field forward. From nutrition to behavior to disease, your research can improve animal welfare and industry practice.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c5" alt="Agricultural Biotechnologist" /></div><div class="card-body"><h3 class="card-title">Agricultural Biotechnologist</h3><p class="card-desc">Bridge biology and technology to solve tomorrow’s challenges. Develop tools and solutions that make agriculture safer, smarter, and more sustainable.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c1" alt="" /></div><div class="card-body"><h3 class="card-title">Veterinarian</h3><p class="card-desc">Turn your love for animal health into a hands-on career.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c2" alt="" /></div><div class="card-body"><h3 class="card-title">Animal Geneticist</h3><p class="card-desc">Shape the future of livestock and species.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c3" alt="" /></div><div class="card-body"><h3 class="card-title">Embryologist</h3><p class="card-desc">Work at the cutting edge of reproduction and biotechnology.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c4" alt="" /></div><div class="card-body"><h3 class="card-title">Animal Research Scientist</h3><p class="card-desc">Ask the questions that move the field forward.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c5" alt="" /></div><div class="card-body"><h3 class="card-title">Agricultural Biotechnologist</h3><p class="card-desc">Bridge biology and technology for agriculture.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
             </div>
           </div>
+          <div class="carousel-dots" data-dots="5"><span class="carousel-dot"></span><span class="carousel-dot"></span><span class="carousel-dot"></span><span class="carousel-dot"></span><span class="carousel-dot"></span></div>
         </div>
+        <!-- Technical Careers -->
+        <div class="careers-carousel-block">
+          <div class="text-center mb-6">
+            <h2 style="margin-bottom: 0.5rem;">Technical Careers</h2>
+            <p class="subtitle" style="margin: 0;">Require specialized training or technical expertise.</p>
+          </div>
+          <div class="careers-carousel-wrap">
+            <div class="careers-carousel-inner" data-cards="5">
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=t1" alt="Dairy Herd Manager" /></div><div class="card-body"><h3 class="card-title">Dairy Herd Manager</h3><p class="card-desc">Oversee herd health, nutrition, and production. Lead day-to-day operations on dairy operations with a focus on animal welfare and efficiency.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=t2" alt="Livestock Producer" /></div><div class="card-body"><h3 class="card-title">Livestock Producer</h3><p class="card-desc">Manage beef, sheep, or other livestock enterprises. Combine hands-on animal care with business and sustainability skills.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=t3" alt="Equine Specialist" /></div><div class="card-body"><h3 class="card-title">Equine Specialist</h3><p class="card-desc">Work with horses in training, breeding, therapy, or management. Apply equine science to care, performance, and business.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=t4" alt="Animal Nutrition Specialist" /></div><div class="card-body"><h3 class="card-title">Animal Nutrition Specialist</h3><p class="card-desc">Design and implement feeding programs for livestock and other animals. Optimize health, growth, and production through nutrition.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=t5" alt="Animal Welfare Specialist" /></div><div class="card-body"><h3 class="card-title">Animal Welfare Specialist</h3><p class="card-desc">Assess and improve animal care standards in production, research, or conservation. Advocate for evidence-based welfare practices.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=t1" alt="" /></div><div class="card-body"><h3 class="card-title">Dairy Herd Manager</h3><p class="card-desc">Oversee herd health, nutrition, and production.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=t2" alt="" /></div><div class="card-body"><h3 class="card-title">Livestock Producer</h3><p class="card-desc">Manage beef, sheep, or other livestock enterprises.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=t3" alt="" /></div><div class="card-body"><h3 class="card-title">Equine Specialist</h3><p class="card-desc">Work with horses in training, breeding, or management.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=t4" alt="" /></div><div class="card-body"><h3 class="card-title">Animal Nutrition Specialist</h3><p class="card-desc">Design feeding programs for livestock and other animals.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=t5" alt="" /></div><div class="card-body"><h3 class="card-title">Animal Welfare Specialist</h3><p class="card-desc">Assess and improve animal care standards.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+            </div>
+          </div>
+          <div class="carousel-dots" data-dots="5"><span class="carousel-dot"></span><span class="carousel-dot"></span><span class="carousel-dot"></span><span class="carousel-dot"></span><span class="carousel-dot"></span></div>
+        </div>
+        <!-- Entry-Level Careers -->
+        <div class="careers-carousel-block">
+          <div class="text-center mb-6">
+            <h2 style="margin-bottom: 0.5rem;">Entry-Level Careers</h2>
+            <p class="subtitle" style="margin: 0;">Often accessible with a bachelor’s degree.</p>
+          </div>
+          <div class="careers-carousel-wrap">
+            <div class="careers-carousel-inner" data-cards="4">
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=e1" alt="Veterinary Technician" /></div><div class="card-body"><h3 class="card-title">Veterinary Technician</h3><p class="card-desc">Support veterinarians in clinical and surgical care. Handle diagnostics, nursing, and client education in clinics, hospitals, or research.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=e2" alt="Zookeeper" /></div><div class="card-body"><h3 class="card-title">Zookeeper</h3><p class="card-desc">Care for animals in zoos, aquariums, or wildlife facilities. Feed, enrich, and monitor health while supporting conservation and education.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=e3" alt="Farm Manager" /></div><div class="card-body"><h3 class="card-title">Farm Manager</h3><p class="card-desc">Run daily operations on farms and ranches. Coordinate labor, equipment, and animal care to meet production and business goals.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=e4" alt="Animal Care Specialist" /></div><div class="card-body"><h3 class="card-title">Animal Care Specialist</h3><p class="card-desc">Provide hands-on care in shelters, labs, or production. Ensure feeding, housing, and handling meet welfare and protocol standards.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=e1" alt="" /></div><div class="card-body"><h3 class="card-title">Veterinary Technician</h3><p class="card-desc">Support veterinarians in clinical and surgical care.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=e2" alt="" /></div><div class="card-body"><h3 class="card-title">Zookeeper</h3><p class="card-desc">Care for animals in zoos, aquariums, or wildlife facilities.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=e3" alt="" /></div><div class="card-body"><h3 class="card-title">Farm Manager</h3><p class="card-desc">Run daily operations on farms and ranches.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+              <div class="card"><div class="card-img-sm"><img src="https://picsum.photos/400/192?random=e4" alt="" /></div><div class="card-body"><h3 class="card-title">Animal Care Specialist</h3><p class="card-desc">Provide hands-on care in shelters, labs, or production.</p><a href="#" class="card-pdf-link">📄 Download informative PDF</a></div></div>
+            </div>
+          </div>
+          <div class="carousel-dots" data-dots="4"><span class="carousel-dot"></span><span class="carousel-dot"></span><span class="carousel-dot"></span><span class="carousel-dot"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Connect with professionals & advanced students -->
+    <div class="container-wide" style="margin-top: 3rem;">
+      <div class="text-center mb-6">
+        <h2 style="margin-bottom: 0.5rem;">Connect with Professionals & Advanced Students</h2>
+        <p class="subtitle" style="margin: 0; max-width: 42rem; margin-left: auto; margin-right: auto;">Schedule a one-on-one session with veterinarians, researchers, and upper-level students in animal science. Get firsthand advice, ask about career paths, and see what a day in the field looks like.</p>
+      </div>
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <img src="connect-professionals.webp" alt="Book a session with professionals and students" style="width: 100%; max-width: 720px; height: auto; display: block; margin: 0 auto; border-radius: 0.75rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" />
+      </div>
+      <div class="text-center">
+        <a href="#" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">📅 Book your session</a>
       </div>
     </div>
   </section>
@@ -397,7 +405,8 @@
   <!-- ADVS News & Calendar -->
   <section class="section bg-gray">
     <div class="container-wide">
-      <h2 class="text-center mb-12">ADVS News & Calendar</h2>
+      <h2 class="text-center mb-4">ADVS News & Calendar</h2>
+      <p class="text-center subtitle mb-12" style="margin-bottom: 2.5rem;">Stay in the loop—stories from our community, research highlights, and upcoming events you won’t want to miss. <strong>Join 3 events in a month and you will have a special discount on all your program materials when you enroll.</strong></p>
       <div class="two-cols">
         <div>
           <div class="news-title">📰 ADVS News</div>
@@ -550,26 +559,36 @@
     });
 
     (function() {
-      var inner = document.getElementById("careersCarouselInner");
-      if (!inner) return;
       var cardWidth = 280;
       var gap = 24;
       var step = cardWidth + gap;
-      var maxOffset = step * 5;
-      var offset = 0;
-      inner.style.transition = "transform 0.6s ease";
-      setInterval(function() {
-        offset += step;
-        if (offset >= maxOffset) {
-          inner.style.transition = "none";
-          offset = 0;
-          inner.style.transform = "translateX(0)";
-          inner.offsetHeight;
-          inner.style.transition = "transform 0.6s ease";
-        } else {
-          inner.style.transform = "translateX(-" + offset + "px)";
+      document.querySelectorAll(".careers-carousel-inner").forEach(function(inner) {
+        var block = inner.closest(".careers-carousel-block");
+        var dotsContainer = block ? block.querySelector(".carousel-dots") : null;
+        var dots = dotsContainer ? dotsContainer.querySelectorAll(".carousel-dot") : [];
+        var numCards = parseInt(inner.getAttribute("data-cards"), 10) || 5;
+        var maxOffset = step * numCards;
+        var offset = 0;
+        function setActiveDot() {
+          var idx = offset === 0 ? 0 : Math.floor(offset / step) % numCards;
+          dots.forEach(function(dot, i) { dot.classList.toggle("active", i === idx); });
         }
-      }, 4000);
+        setActiveDot();
+        inner.style.transition = "transform 0.6s ease";
+        setInterval(function() {
+          offset += step;
+          if (offset >= maxOffset) {
+            inner.style.transition = "none";
+            offset = 0;
+            inner.style.transform = "translateX(0)";
+            inner.offsetHeight;
+            inner.style.transition = "transform 0.6s ease";
+          } else {
+            inner.style.transform = "translateX(-" + offset + "px)";
+          }
+          setActiveDot();
+        }, 5000);
+      });
     })();
   </script>
 </body>
