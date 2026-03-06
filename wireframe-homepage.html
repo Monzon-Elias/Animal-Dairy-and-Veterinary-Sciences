@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animal, Dairy & Veterinary Sciences | ADVS Redesign Wireframe</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; background: #fff; color: #111; }
+    img { max-width: 100%; display: block; }
+
+    .hero {
+      position: relative;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #1a1a1a;
+    }
+    .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); z-index: 1; }
+    .hero-bg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      background: #333;
+    }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; padding: 0 1rem; max-width: 64rem; }
+    .hero h1 { font-size: clamp(2.5rem, 5vw, 3.75rem); margin: 0 0 1.5rem; font-weight: 700; }
+    .hero p { font-size: 1.25rem; margin: 0 0 2rem; opacity: 0.95; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.75rem 2rem; font-size: 1rem; font-weight: 500; border-radius: 0.375rem;
+      border: none; cursor: default; text-decoration: none;
+    }
+    .btn-primary { background: #1d4ed8; color: #fff; }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; }
+
+    .section { padding: 4rem 1rem; }
+    .container-narrow { max-width: 64rem; margin: 0 auto; }
+    .container-wide { max-width: 72rem; margin: 0 auto; }
+    .text-center { text-align: center; }
+    .mb-12 { margin-bottom: 3rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    h2 { font-size: 2.25rem; margin: 0 0 1rem; font-weight: 600; }
+    .subtitle { font-size: 1.25rem; color: #4b5563; margin: 0; }
+
+    .video-block {
+      position: relative;
+      aspect-ratio: 16/10;
+      max-width: 64rem;
+      margin: 0 auto;
+      background: #111;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-placeholder { width: 100%; height: 100%; background: #333; position: relative; }
+    .video-placeholder img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
+    .play-btn {
+      position: absolute;
+      width: 5rem; height: 5rem;
+      background: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #1d4ed8;
+    }
+
+    .bg-gray { background: #f3f4f6; }
+    .grid-4 { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
+    .card-img {
+      flex: 0 1 260px;
+      min-width: 200px;
+      height: 16rem;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 500;
+      font-size: 1.125rem;
+      background: #9ca3af;
+    }
+    .card-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.35s ease; }
+    .card-img:hover img { transform: scale(1.06); }
+    .card-img span { position: relative; z-index: 1; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+    .card-img::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
+
+    .grid-3 { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+    .grid-4-cards { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+    .card {
+      flex: 0 1 320px;
+      min-width: 260px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-img-sm { height: 12rem; background: #9ca3af; overflow: hidden; }
+    .card-img-sm img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.35s ease; }
+    .card:hover .card-img-sm img { transform: scale(1.06); }
+    .card-body { padding: 1.5rem; flex: 1; }
+    .card-title { font-size: 1.25rem; font-weight: 600; margin: 0 0 0.5rem; }
+    .card-desc { color: #6b7280; font-size: 0.875rem; margin: 0 0 1rem; }
+    .card ul { margin: 0; padding: 0 0 0 1rem; color: #4b5563; font-size: 0.875rem; line-height: 1.8; }
+
+    .two-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    @media (max-width: 768px) { .two-cols { grid-template-columns: 1fr; } }
+    .news-title, .events-title { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 600; }
+    .news-title svg, .events-title svg { color: #1d4ed8; flex-shrink: 0; }
+    .news-item, .event-item {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .event-item:hover { transform: scale(1.01); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .news-thumb { width: 8rem; height: 6rem; background: #d1d5db; border-radius: 0.25rem; flex-shrink: 0; overflow: hidden; }
+    .news-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.35s ease; }
+    .news-item:hover .news-thumb img { transform: scale(1.06); }
+    .news-item:hover { transform: scale(1.01); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .news-meta { font-size: 0.875rem; color: #6b7280; margin-bottom: 0.25rem; }
+    .news-item h4, .event-item h4 { margin: 0 0 0.25rem; font-size: 1.125rem; }
+    .news-item p, .event-item p { margin: 0; font-size: 0.875rem; color: #4b5563; }
+    .event-date { background: #1d4ed8; color: #fff; padding: 0.75rem; border-radius: 0.25rem; text-align: center; min-width: 70px; flex-shrink: 0; }
+    .event-date .day { font-size: 1.5rem; font-weight: 600; }
+    .event-date .month { font-size: 0.75rem; }
+    .event-border { border-left: 4px solid #1d4ed8; }
+    .link { color: #1d4ed8; text-decoration: none; font-size: 0.875rem; }
+
+    .site-footer { background: #1e3a5f; color: #fff; padding: 2rem 1rem 2.5rem; }
+    .site-footer a { color: #fff; text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; }
+    .footer-title { font-size: 1.125rem; font-weight: 700; text-align: center; margin-bottom: 2rem; padding-bottom: 0.5rem; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1.2fr 1.2fr auto; gap: 2rem; max-width: 72rem; margin: 0 auto; align-items: start; }
+    @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-col h3 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; margin: 0 0 1rem; padding-bottom: 0.35rem; border-bottom: 1px solid rgba(255,255,255,0.4); }
+    .footer-col ul { list-style: none; margin: 0; padding: 0; font-size: 0.875rem; line-height: 1.9; }
+    .footer-social { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+    .footer-social a { display: flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; background: rgba(255,255,255,0.15); border-radius: 0.25rem; font-size: 0.875rem; }
+    .footer-social a:hover { background: rgba(255,255,255,0.25); text-decoration: none; }
+    .footer-address { font-size: 0.875rem; line-height: 1.6; margin-bottom: 0.25rem; }
+    .footer-buttons { display: flex; flex-direction: column; gap: 0.5rem; min-width: 180px; }
+    .footer-buttons .btn { width: 100%; justify-content: center; font-size: 0.875rem; padding: 0.5rem 1rem; }
+    .footer-buttons .btn-edit { background: #84cc16; color: #1e3a5f; border: none; }
+    .footer-buttons .btn-edit:hover { background: #a3e635; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.75rem; }
+      .hero p { font-size: 1rem; }
+      h2 { font-size: 1.5rem; }
+      .subtitle { font-size: 1rem; }
+      .site-footer .footer-title { font-size: 1rem; }
+      .news-item { flex-direction: column; padding: 0; overflow: hidden; border-radius: 0.75rem; }
+      .news-item .news-thumb { width: 100%; height: auto; aspect-ratio: 16/10; border-radius: 0; }
+      .news-item .news-thumb img { width: 100%; height: 100%; object-fit: cover; }
+      .news-item > div:last-child { padding: 1.5rem; }
+    }
+    @media (max-width: 768px) and (min-width: 501px) {
+      .news-item .news-thumb { aspect-ratio: 3/1; max-width: 100%; margin: 0 auto; }
+    }
+
+    .placeholder { background: #9ca3af; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; }
+
+    .careers-carousel-section { margin-top: 2.5rem; padding-top: 2rem; }
+    .careers-carousel-wrap { overflow: hidden; padding: 1rem 0 1.5rem; }
+    .careers-carousel-inner { display: flex; gap: 1.5rem; transition: transform 0.6s ease; }
+    .careers-carousel-inner .card { flex: 0 0 280px; min-width: 280px; }
+  </style>
+  </style>
+</head>
+<body>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-bg"><img src="https://picsum.photos/1920/500?random=hero" alt="Animal, Dairy & Veterinary Sciences" /></div>
+    <div class="hero-content">
+      <h1>Animal, Dairy & Veterinary Sciences</h1>
+      <p>S.J. & Jessie E. Quinney College of Agriculture & Natural Resources</p>
+      <button type="button" class="btn btn-primary">📞 Request Degree Information</button>
+    </div>
+  </section>
+
+  <!-- Video central -->
+  <section class="section">
+    <div class="container-narrow text-center mb-12">
+      <h2>Discover ADVS</h2>
+      <p class="subtitle">Learn about our undergraduate and graduate programs in animal science. 
+        Here you’ll find concise information about career value and job-market relevance, program duration, cost, 
+        and other key details so you can quickly find what matters most to you.</p>
+    </div>
+    <div class="video-block">
+      <div class="video-placeholder"><img src="https://picsum.photos/960/540?random=video" alt="ADVS programs and research" /></div>
+      <div class="play-btn">▶</div>
+    </div>
+    <div class="container-narrow" style="margin-top: 2rem;">
+      <div class="text-center mb-6" style="padding-top: 2rem;">
+        <h2 style="margin-bottom: 0.75rem;">Where Can a Degree in Animal, Dairy & Veterinary Sciences Take You?</h2>
+        <p class="subtitle" style="margin: 0;">Explore the diverse career paths available in animal science—from hands-on animal care and livestock management to advanced research, biotechnology, and veterinary medicine. Discover how your passion for animals can grow into a meaningful and impactful profession, and how these careers are interrelated.</p>
+      </div>
+      <img src="advs 1st img.png" alt="ADVS" style="width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 0.5rem;" />
+    </div>
+    <div class="container-wide">
+      <div class="careers-carousel-section">
+        <div class="text-center mb-6">
+          <h2 style="margin-bottom: 0.5rem;">Explore the five pilars in Animal Science</h2>
+          <p class="subtitle" style="margin: 0;">These are the five amazing professional careers we offer in Animal Science. Explore each of them to find the one that is right for you.</p>
+        </div>
+        <div class="careers-carousel-wrap">
+          <div class="careers-carousel-inner" id="careersCarouselInner">
+            <div class="card">
+              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c1" alt="Veterinarian" /></div>
+              <div class="card-body">
+                <h3 class="card-title">Veterinarian</h3>
+                <p class="card-desc">Turn your love for animal health into a hands-on career. Diagnose, treat, and care for animals while making a real difference in their lives and their owners’.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c2" alt="Animal Geneticist" /></div>
+              <div class="card-body">
+                <h3 class="card-title">Animal Geneticist</h3>
+                <p class="card-desc">Shape the future of livestock and species. Use genetics to improve health, productivity, and sustainability—where science meets real-world impact.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c3" alt="Embryologist" /></div>
+              <div class="card-body">
+                <h3 class="card-title">Embryologist</h3>
+                <p class="card-desc">Work at the cutting edge of reproduction and biotechnology. Help advance breeding, conservation, and research from the very first stages of life.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c4" alt="Animal Researcher" /></div>
+              <div class="card-body">
+                <h3 class="card-title">Animal Researcher</h3>
+                <p class="card-desc">Ask the questions that move the field forward. From nutrition to behavior to disease, your research can improve animal welfare and industry practice.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c5" alt="Ag Biotechnologist" /></div>
+              <div class="card-body">
+                <h3 class="card-title">Ag Biotechnologist</h3>
+                <p class="card-desc">Bridge biology and technology to solve tomorrow’s challenges. Develop tools and solutions that make agriculture safer, smarter, and more sustainable.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c1" alt="Veterinarian" /></div>
+              <div class="card-body">
+                <h3 class="card-title">Veterinarian</h3>
+                <p class="card-desc">Turn your love for animal health into a hands-on career. Diagnose, treat, and care for animals while making a real difference in their lives and their owners’.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c2" alt="Animal Geneticist" /></div>
+              <div class="card-body">
+                <h3 class="card-title">Animal Geneticist</h3>
+                <p class="card-desc">Shape the future of livestock and species. Use genetics to improve health, productivity, and sustainability—where science meets real-world impact.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c3" alt="Embryologist" /></div>
+              <div class="card-body">
+                <h3 class="card-title">Embryologist</h3>
+                <p class="card-desc">Work at the cutting edge of reproduction and biotechnology. Help advance breeding, conservation, and research from the very first stages of life.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c4" alt="Animal Researcher" /></div>
+              <div class="card-body">
+                <h3 class="card-title">Animal Researcher</h3>
+                <p class="card-desc">Ask the questions that move the field forward. From nutrition to behavior to disease, your research can improve animal welfare and industry practice.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=c5" alt="Ag Biotechnologist" /></div>
+              <div class="card-body">
+                <h3 class="card-title">Ag Biotechnologist</h3>
+                <p class="card-desc">Bridge biology and technology to solve tomorrow’s challenges. Develop tools and solutions that make agriculture safer, smarter, and more sustainable.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick links / Explore -->
+  <section class="section bg-gray">
+    <div class="container-wide">
+      <h2 class="text-center mb-6">Explore ADVS</h2>
+      <p class="text-center subtitle mb-12" style="padding-bottom: 1.5rem;">Explore everything related to pursuing a career in Animal, Dairy & Veterinary Sciences with us.</p>
+      <div class="grid-4">
+        <div class="card-img"><img src="https://picsum.photos/400/256?random=1" alt="" /><span>Degrees</span></div>
+        <div class="card-img"><img src="https://picsum.photos/400/256?random=2" alt="" /><span>Clubs</span></div>
+        <div class="card-img"><img src="https://picsum.photos/400/256?random=3" alt="" /><span>Research</span></div>
+        <div class="card-img"><img src="https://picsum.photos/400/256?random=4" alt="" /><span>Graduate Students</span></div>
+        <div class="card-img"><img src="https://picsum.photos/400/256?random=5" alt="" /><span>View Facilities</span></div>
+        <div class="card-img"><img src="https://picsum.photos/400/256?random=6" alt="" /><span>Equine Programs</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Programs / Research Centers -->
+  <section class="section">
+    <div class="container-wide">
+      <h2 class="text-center mb-6">Related Programs</h2>
+      <p class="text-center subtitle mb-12" style="padding-bottom: 1.5rem;">Research centers and programs connected to ADVS</p>
+      <div class="grid-4-cards">
+        <div class="card">
+          <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=10" alt="Center for Integrated Biosystems" /></div>
+          <div class="card-body">
+            <h3 class="card-title">Center for Integrated Biosystems</h3>
+            <p class="card-desc">Integrated research in biosystems and biotechnology.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=11" alt="College of Veterinary Medicine" /></div>
+          <div class="card-body">
+            <h3 class="card-title">College of Veterinary Medicine</h3>
+            <p class="card-desc">Veterinary education and clinical training.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=12" alt="Utah Veterinary Diagnostic Laboratory" /></div>
+          <div class="card-body">
+            <h3 class="card-title">The Utah Veterinary Diagnostic Laboratory</h3>
+            <p class="card-desc">Diagnostic services and lab research.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-sm"><img src="https://picsum.photos/400/192?random=13" alt="Institute for Antiviral Research" /></div>
+          <div class="card-body">
+            <h3 class="card-title">The Institute for Antiviral Research</h3>
+            <p class="card-desc">Antiviral research and development.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVS News & Calendar -->
+  <section class="section bg-gray">
+    <div class="container-wide">
+      <h2 class="text-center mb-12">ADVS News & Calendar</h2>
+      <div class="two-cols">
+        <div>
+          <div class="news-title">📰 ADVS News</div>
+          <div class="news-item">
+            <div class="news-thumb"><img src="https://picsum.photos/600/375?random=20" alt="" /></div>
+            <div>
+              <div class="news-meta">February 10, 2026</div>
+              <h4>Showing Up to Serve: How Scholarships Are Helping Wyatt Nebeker Grow as an Agricultural Educator</h4>
+              <p>Wyatt serves as a QANR ambassador, president of the Animal Science Club, Utah Pork Producer Ambassador, and recently earned his American FFA degree.</p>
+              <a href="#" class="link">Read Story →</a>
+            </div>
+          </div>
+          <div class="news-item">
+            <div class="news-thumb"><img src="https://picsum.photos/600/375?random=21" alt="" /></div>
+            <div>
+              <div class="news-meta">October 15, 2025</div>
+              <h4>A-Day of Giving Student Spotlight: Gavin Turner – Supporting Utah Agriculture Through Research</h4>
+              <p>Studying Veterinary Science at USU, supporting Utah agriculture through research from his roots in Morgan, Utah.</p>
+              <a href="#" class="link">Read Story →</a>
+            </div>
+          </div>
+          <div class="news-item">
+            <div class="news-thumb"><img src="https://picsum.photos/600/375?random=22" alt="" /></div>
+            <div>
+              <div class="news-meta">August 26, 2025</div>
+              <h4>Going Old School: Ranchers, Researchers Convene for USU Ranch Management Academy</h4>
+              <p>Ranchers from around the region gathering to add land management strategies—managing wildlife as part of ranching operations.</p>
+              <a href="#" class="link">Read Story →</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="events-title">📅 ADVS Calendar</div>
+          <div class="event-item event-border">
+            <div class="event-date"><div class="day">20</div><div class="month">MAR</div></div>
+            <div>
+              <h4>Annual Horse Sale</h4>
+              <p>Sam Skaggs Family Equine Education Center</p>
+              <p>Equine programs and breeding program showcase.</p>
+            </div>
+          </div>
+          <div class="event-item event-border">
+            <div class="event-date"><div class="day">25</div><div class="month">MAR</div></div>
+            <div>
+              <h4>Ranch Management Academy Session</h4>
+              <p>Ranchers and researchers—land and wildlife management.</p>
+            </div>
+          </div>
+          <div class="event-item event-border">
+            <div class="event-date"><div class="day">1</div><div class="month">APR</div></div>
+            <div>
+              <h4>Graduate Research Symposium</h4>
+              <p>Faculty and graduate student research across ADVS disciplines.</p>
+            </div>
+          </div>
+          <div class="event-item event-border">
+            <div class="event-date"><div class="day">15</div><div class="month">APR</div></div>
+            <div>
+              <h4>Dairy Science Open House</h4>
+              <p>9:00 AM – 12:00 PM</p>
+              <p>Tour our dairy facilities, meet faculty, and learn about research in nutrition and herd management.</p>
+            </div>
+          </div>
+          <div class="event-item event-border">
+            <div class="event-date"><div class="day">22</div><div class="month">APR</div></div>
+            <div>
+              <h4>Veterinary Medicine Info Session</h4>
+              <p>4:00 PM – 6:00 PM</p>
+              <p>Admissions overview, prerequisites, and Q&A with current DVM students and advisors.</p>
+            </div>
+          </div>
+          <div class="event-item event-border">
+            <div class="event-date"><div class="day">8</div><div class="month">MAY</div></div>
+            <div>
+              <h4>Animal Science Career & Internship Fair</h4>
+              <p>10:00 AM – 2:00 PM</p>
+              <p>Connect with employers and organizations offering internships and full-time roles in animal and veterinary science.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-title">S.J. & Jessie E. Quinney College of Agriculture & Natural Resources</div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>CONTACT</h3>
+        <div class="footer-social">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Twitter">𝕏</a>
+          <a href="#" title="YouTube">▶</a>
+          <a href="#" title="Instagram">📷</a>
+        </div>
+        <div class="footer-address">4800 Old Main Hill<br />Logan, UT 84322<br />AGRS 421</div>
+        <div class="footer-address">435-797-2282</div>
+      </div>
+      <div class="footer-col">
+        <h3>ABOUT US</h3>
+        <ul>
+          <li><a href="#">Facilities</a></li>
+          <li><a href="#">Statewide Campuses</a></li>
+          <li><a href="#">About USU</a></li>
+          <li><a href="#">Assessments</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>EMPLOYEE RESOURCES</h3>
+        <ul>
+          <li><a href="#">Professional Development</a></li>
+          <li><a href="#">Digital Measures</a></li>
+          <li><a href="#">Communication & Marketing</a></li>
+          <li><a href="#">Business Service Center</a></li>
+          <li><a href="#">Research and Grant Resources</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>STUDENT RESOURCES</h3>
+        <ul>
+          <li><a href="#">Advising</a></li>
+          <li><a href="#">Scholarships</a></li>
+          <li><a href="#">Graduate Student Rights & Responsibilities</a></li>
+          <li><a href="#">Graduate Student Resources</a></li>
+          <li><a href="#">Reserve QANR Study Rooms</a></li>
+          <li><a href="#">View Calendar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-buttons-col">
+        <div class="footer-buttons">
+          <button type="button" class="btn btn-edit">✎ Request a Website Edit</button>
+          <button type="button" class="btn btn-primary">Apply</button>
+          <button type="button" class="btn btn-primary">Visit</button>
+          <button type="button" class="btn btn-primary">Give</button>
+          <button type="button" class="btn btn-primary">Magazine</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Placeholder cuando las imágenes no cargan (sin internet, etc.)
+    var placeholderSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect fill='%23e5e7eb' width='400' height='300'/%3E%3Ccircle cx='100' cy='70' r='25' fill='%239ca3af'/%3E%3Cpath d='M0 300 L150 100 L300 180 L400 120 L400 300 Z' fill='%239ca3af'/%3E%3C/svg%3E";
+    document.querySelectorAll("img").forEach(function(img) {
+      img.onerror = function() {
+        this.onerror = null;
+        this.src = placeholderSvg;
+      };
+    });
+
+    (function() {
+      var inner = document.getElementById("careersCarouselInner");
+      if (!inner) return;
+      var cardWidth = 280;
+      var gap = 24;
+      var step = cardWidth + gap;
+      var maxOffset = step * 5;
+      var offset = 0;
+      inner.style.transition = "transform 0.6s ease";
+      setInterval(function() {
+        offset += step;
+        if (offset >= maxOffset) {
+          inner.style.transition = "none";
+          offset = 0;
+          inner.style.transform = "translateX(0)";
+          inner.offsetHeight;
+          inner.style.transition = "transform 0.6s ease";
+        } else {
+          inner.style.transform = "translateX(-" + offset + "px)";
+        }
+      }, 4000);
+    })();
+  </script>
+</body>
+</html>
